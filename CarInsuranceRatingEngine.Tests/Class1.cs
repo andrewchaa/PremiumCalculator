@@ -14,16 +14,29 @@ namespace CarInsuranceRatingEngine.Tests
         public void It_should_calculate_premium()
         {
             var calculator = new RateCalculator();
-            var premium = calculator.CalculateRate("Car", "Audi");
+            var premium = calculator.CalculatePremium("Car", "Audi");
+
             Assert.That(premium, Is.EqualTo(1200));
         }
     }
 
     public class RateCalculator
     {
-        public int CalculateRate(string vehicleType, string manufacturer)
+        public double CalculatePremium(string vehicleType, string manufacturer)
         {
-            return 1200;
+            var basePremium = GetBasePremiumFor(vehicleType);
+            var factor = GetFactorFor(manufacturer);
+            return basePremium * factor;
+        }
+
+        private double GetFactorFor(string manufacturer)
+        {
+            return 1.5;
+        }
+
+        private double GetBasePremiumFor(string vehicleType)
+        {
+            return 800;
         }
     }
 }
