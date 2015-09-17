@@ -6,5 +6,6 @@ namespace CarInsuranceRatingEngine.Contracts
     public interface ILookUpBasePremium
     {
         double GetBasePremiumFor(Vehicle vehicle);
+        void CheckIfVehicleTypeExist(Vehicle vehicle);
     }
 }

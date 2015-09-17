@@ -21,10 +21,15 @@ namespace CarInsuranceRatingEngine.Stores
             };
         }
 
-        public double GetBasePremiumFor(Vehicle vehicle)
+        public void CheckIfVehicleTypeExist(Vehicle vehicle)
         {
             if (!_basePremiums.Keys.Contains(vehicle.GetType()))
                 throw new VehicleTypeNotExistException();
+        }
+
+        public double GetBasePremiumFor(Vehicle vehicle)
+        {
+            CheckIfVehicleTypeExist(vehicle);
 
             return _basePremiums[vehicle.GetType()];
         }

@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IValidateVehicle.cs" />
     <Compile Include="Manufacturers\Mercedes.cs" />
     <Compile Include="Manufacturers\Volkswagen.cs" />
     <Compile Include="Exceptions\ManufacturerNotFoundException.cs" />
@@ -47,6 +49,8 @@
     <Compile Include="Contracts\ILookUpManufacturerFactor.cs" />
     <Compile Include="Contracts\IManufacturer.cs" />
     <Compile Include="Manufacturers\Audi.cs" />
+    <Compile Include="Validators\ManufacturerMustExist.cs" />
+    <Compile Include="Validators\VehicleTypeMustExist.cs" />
     <Compile Include="VehicleTypes\Car.cs" />
     <Compile Include="VehicleTypes\Truck.cs" />
     <Compile Include="VehicleTypes\Van.cs" />

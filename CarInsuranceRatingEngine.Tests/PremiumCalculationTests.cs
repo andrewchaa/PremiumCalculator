@@ -1,5 +1,10 @@
-﻿using CarInsuranceRatingEngine.Manufacturers;
+﻿using System;
+using System.Collections.Generic;
+using CarInsuranceRatingEngine.Contracts;
+using CarInsuranceRatingEngine.Exceptions;
+using CarInsuranceRatingEngine.Manufacturers;
 using CarInsuranceRatingEngine.Stores;
+using CarInsuranceRatingEngine.Validators;
 using CarInsuranceRatingEngine.VehicleTypes;
 using NUnit.Framework;
 
@@ -13,7 +18,10 @@ namespace CarInsuranceRatingEngine.Tests
         [SetUp]
         public void SetUp()
         {
-            _premiumCalculator = new PremiumCalculator(new BasePremiumStore(), new ManufacturerFactorStore());
+            var basePremiumStore = new BasePremiumStore();
+            var manufacturerFactorStore = new ManufacturerFactorStore();
+            var validators = new List<IValidateVehicle> {new ManufacturerMustExist(manufacturerFactorStore), new VehicleTypeMustExist(basePremiumStore)};
+            _premiumCalculator = new PremiumCalculator(basePremiumStore, manufacturerFactorStore, validators);
         }
 
         [Test]
@@ -50,6 +58,20 @@ namespace CarInsuranceRatingEngine.Tests
             var premium = _premiumCalculator.Calculate(mercedesVan);
 
             Assert.That(premium, Is.EqualTo(2000));
+        }
+
+        [Test]
+        public void It_should_throw_exceptions_for_non_existing_vehicle_type()
+        {
+            var truck = new Truck(new Audi());
+            Assert.Throws<VehicleTypeNotExistException>(() => _premiumCalculator.Calculate(truck));
+        }
+
+        [Test]
+        public void It_should_throw_exceptions_for_non_existing_manufacturer()
+        {
+            var volkswagen = new Car(new Volkswagen());
+            Assert.Throws<ManufacturerNotFoundException>(() => _premiumCalculator.Calculate(volkswagen));
         }
     }
 }

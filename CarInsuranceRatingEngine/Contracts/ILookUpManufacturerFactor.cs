@@ -1,7 +1,10 @@
+using CarInsuranceRatingEngine.Manufacturers;
+
 namespace CarInsuranceRatingEngine.Contracts
 {
     public interface ILookUpManufacturerFactor
     {
-        double GetFactorFor(IManufacturer manufacturer);
+        double GetFactorFor(Vehicle manufacturer);
+        void CheckIfManufacturerExist(Vehicle vehicle);
     }
 }

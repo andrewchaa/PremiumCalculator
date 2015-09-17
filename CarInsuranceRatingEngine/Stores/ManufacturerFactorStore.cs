@@ -9,7 +9,7 @@ namespace CarInsuranceRatingEngine.Stores
 {
     public class ManufacturerFactorStore : ILookUpManufacturerFactor
     {
-        private Dictionary<Type, double> _factors;
+        private readonly Dictionary<Type, double> _factors;
 
         public ManufacturerFactorStore()
         {
@@ -20,12 +20,16 @@ namespace CarInsuranceRatingEngine.Stores
             };
         }
 
-        public double GetFactorFor(IManufacturer manufacturer)
+        public double GetFactorFor(Vehicle vehicle)
         {
-            if (!_factors.Keys.Contains(manufacturer.GetType()))
-                throw new ManufacturerNotFoundException();
+            CheckIfManufacturerExist(vehicle);
+            return _factors[vehicle.Manufacturer.GetType()];
+        }
 
-            return _factors[manufacturer.GetType()];
+        public void CheckIfManufacturerExist(Vehicle vehicle)
+        {
+            if (!_factors.Keys.Contains(vehicle.Manufacturer.GetType()))
+                throw new ManufacturerNotFoundException();
         }
     }
 }

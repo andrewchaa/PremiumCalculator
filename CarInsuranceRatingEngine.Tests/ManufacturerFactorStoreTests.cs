@@ -1,6 +1,7 @@
 ﻿using CarInsuranceRatingEngine.Exceptions;
 using CarInsuranceRatingEngine.Manufacturers;
 using CarInsuranceRatingEngine.Stores;
+using CarInsuranceRatingEngine.VehicleTypes;
 using NUnit.Framework;
 
 namespace CarInsuranceRatingEngine.Tests
@@ -19,7 +20,7 @@ namespace CarInsuranceRatingEngine.Tests
         [Test]
         public void It_should_get_manufacturer_factor_for_Audi()
         {
-            var factor = _store.GetFactorFor(new Audi());
+            var factor = _store.GetFactorFor(new Car(new Audi()));
 
             Assert.That(factor, Is.EqualTo(1.5));
         }
@@ -27,7 +28,7 @@ namespace CarInsuranceRatingEngine.Tests
         [Test]
         public void It_should_get_manufacturer_factor_for_Mercedes()
         {
-            var factor = _store.GetFactorFor(new Mercedes());
+            var factor = _store.GetFactorFor(new Car(new Mercedes()));
 
             Assert.That(factor, Is.EqualTo(2.0));
         }
@@ -35,7 +36,7 @@ namespace CarInsuranceRatingEngine.Tests
         [Test]
         public void It_should_throw_manufacturer_not_found_exception_given_unknown_facturer()
         {
-            Assert.Throws<ManufacturerNotFoundException>(() => _store.GetFactorFor(new Volkswagen()));
+            Assert.Throws<ManufacturerNotFoundException>(() => _store.GetFactorFor(new Car(new Volkswagen())));
         }
     }
 }
