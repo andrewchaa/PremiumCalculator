@@ -1,4 +1,6 @@
-﻿using CarInsuranceRatingEngine.Exceptions;
+﻿using CarInsuranceRatingEngine.Contracts;
+using CarInsuranceRatingEngine.Entities;
+using CarInsuranceRatingEngine.Exceptions;
 using NUnit.Framework;
 
 namespace CarInsuranceRatingEngine.Tests
@@ -18,7 +20,8 @@ namespace CarInsuranceRatingEngine.Tests
         [Test]
         public void It_should_get_base_premium_for_car()
         {
-            var basePremium = _store.GetBasePremiumFor("Car");
+            var car = new Car("Audi");
+            var basePremium = _store.GetBasePremiumFor(car);
 
             Assert.That(basePremium, Is.EqualTo(800));
         }
@@ -26,7 +29,8 @@ namespace CarInsuranceRatingEngine.Tests
         [Test]
         public void It_should_get_base_premium_for_van()
         {
-            var basePremium = _store.GetBasePremiumFor("Van");
+            var van = new Van("Audi");
+            var basePremium = _store.GetBasePremiumFor(van);
 
             Assert.That(basePremium, Is.EqualTo(1000));
         }
@@ -34,7 +38,8 @@ namespace CarInsuranceRatingEngine.Tests
         [Test]
         public void It_should_throw_an_exception_for_non_existing_premium()
         {
-            Assert.Throws<VehicleTypeNotExistException>(() => _store.GetBasePremiumFor("NotExistVehicleType"));
+            var truck = new Truck("Audi");
+            Assert.Throws<VehicleTypeNotExistException>(() => _store.GetBasePremiumFor(truck));
         }
     }
 }

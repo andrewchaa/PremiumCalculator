@@ -1,29 +1,31 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using CarInsuranceRatingEngine.Contracts;
+using CarInsuranceRatingEngine.Entities;
 using CarInsuranceRatingEngine.Exceptions;
 
 namespace CarInsuranceRatingEngine
 {
     public class BasePremiumStore : IEnquireBasePremium
     {
-        private Dictionary<string, double> _basePremiums;
+        private Dictionary<Type, double> _basePremiums;
 
         public BasePremiumStore()
         {
-            _basePremiums = new Dictionary<string, double>
+            _basePremiums = new Dictionary<Type, double>
             {
-                {"Car", 800},
-                {"Van", 1000}
+                {typeof(Car), 800},
+                {typeof(Van), 1000}
             };
         }
 
-        public double GetBasePremiumFor(string vehicleType)
+        public double GetBasePremiumFor(IVehicle vehicle)
         {
-            if (!_basePremiums.Keys.Contains(vehicleType))
+            if (!_basePremiums.Keys.Contains(vehicle.GetType()))
                 throw new VehicleTypeNotExistException();
 
-            return _basePremiums[vehicleType];
+            return _basePremiums[vehicle.GetType()];
         }
 
     }

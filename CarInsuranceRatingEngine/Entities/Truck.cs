@@ -2,17 +2,16 @@
 
 namespace CarInsuranceRatingEngine.Entities
 {
-    public class Car : IVehicle
+    public class Truck : IVehicle
     {
         public string Manufacturer { get; private set; }
-        public string VehicleType { get { return "Car"; } }
 
-        public Car(string manufacturer)
+        public Truck(string manufacturer)
         {
             Manufacturer = manufacturer;
         }
 
-        protected bool Equals(Car other)
+        protected bool Equals(Truck other)
         {
             return string.Equals(Manufacturer, other.Manufacturer);
         }
@@ -22,7 +21,7 @@ namespace CarInsuranceRatingEngine.Entities
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((Car) obj);
+            return Equals((Truck) obj);
         }
 
         public override int GetHashCode()
@@ -30,12 +29,12 @@ namespace CarInsuranceRatingEngine.Entities
             return (Manufacturer != null ? Manufacturer.GetHashCode() : 0);
         }
 
-        public static bool operator ==(Car left, Car right)
+        public static bool operator ==(Truck left, Truck right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(Car left, Car right)
+        public static bool operator !=(Truck left, Truck right)
         {
             return !Equals(left, right);
         }

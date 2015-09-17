@@ -1,7 +1,10 @@
+using System;
+using CarInsuranceRatingEngine.Entities;
+
 namespace CarInsuranceRatingEngine.Contracts
 {
     public interface IEnquireBasePremium
     {
-        double GetBasePremiumFor(string vehicleType);
+        double GetBasePremiumFor(IVehicle vehicle);
     }
 }

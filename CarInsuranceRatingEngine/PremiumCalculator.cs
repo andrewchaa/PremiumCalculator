@@ -1,4 +1,5 @@
 using CarInsuranceRatingEngine.Contracts;
+using CarInsuranceRatingEngine.Entities;
 
 namespace CarInsuranceRatingEngine
 {
@@ -11,10 +12,10 @@ namespace CarInsuranceRatingEngine
             _basePremiumStore = basePremiumStore;
         }
 
-        public double Calculate(string vehicleType, string manufacturer)
+        public double Calculate(IVehicle vehicle)
         {
-            var basePremium = _basePremiumStore.GetBasePremiumFor(vehicleType);
-            var factor = GetFactorFor(manufacturer);
+            var basePremium = _basePremiumStore.GetBasePremiumFor(vehicle);
+            var factor = GetFactorFor(vehicle.Manufacturer);
             return basePremium * factor;
         }
 
