@@ -39,8 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BasePremiumStore.cs" />
+    <Compile Include="Contracts\IEnquireBasePremium.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PremiumCalculator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ToDo.txt" />
