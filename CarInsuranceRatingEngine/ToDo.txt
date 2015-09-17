@@ -1,2 +1,3 @@
 ﻿Interface
 IoC
+Domain Entities for VehicleType
