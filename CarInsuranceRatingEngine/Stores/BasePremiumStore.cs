@@ -5,9 +5,9 @@ using CarInsuranceRatingEngine.Contracts;
 using CarInsuranceRatingEngine.Entities;
 using CarInsuranceRatingEngine.Exceptions;
 
-namespace CarInsuranceRatingEngine
+namespace CarInsuranceRatingEngine.Stores
 {
-    public class BasePremiumStore : IEnquireBasePremium
+    public class BasePremiumStore : ILookUpBasePremium
     {
         private readonly Dictionary<Type, double> _basePremiums;
 

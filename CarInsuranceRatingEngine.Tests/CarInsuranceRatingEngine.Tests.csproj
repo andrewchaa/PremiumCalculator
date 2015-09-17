@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasePremiumStoreTests.cs" />
+    <Compile Include="ManufacturerFactorStoreTests.cs" />
     <Compile Include="PremiumCalculationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -39,8 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasePremiumStore.cs" />
-    <Compile Include="Contracts\IEnquireBasePremium.cs" />
+    <Compile Include="Entities\Mercedes.cs" />
+    <Compile Include="Entities\Volkswagen.cs" />
+    <Compile Include="Exceptions\ManufacturerNotFoundException.cs" />
+    <Compile Include="Stores\BasePremiumStore.cs" />
+    <Compile Include="Contracts\ILookUpBasePremium.cs" />
+    <Compile Include="Contracts\ILookUpManufacturerFactor.cs" />
     <Compile Include="Contracts\IManufacturer.cs" />
     <Compile Include="Entities\Audi.cs" />
     <Compile Include="Entities\Car.cs" />
@@ -51,6 +55,7 @@
     <Compile Include="Exceptions\VehicleTypeNotExistException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PremiumCalculator.cs" />
+    <Compile Include="Stores\ManufacturerFactorStore.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ToDo.txt" />

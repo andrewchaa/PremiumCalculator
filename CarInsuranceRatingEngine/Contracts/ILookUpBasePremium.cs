@@ -3,7 +3,7 @@ using CarInsuranceRatingEngine.Entities;
 
 namespace CarInsuranceRatingEngine.Contracts
 {
-    public interface IEnquireBasePremium
+    public interface ILookUpBasePremium
     {
         double GetBasePremiumFor(Vehicle vehicle);
     }

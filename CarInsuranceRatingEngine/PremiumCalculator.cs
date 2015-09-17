@@ -5,23 +5,21 @@ namespace CarInsuranceRatingEngine
 {
     public class PremiumCalculator
     {
-        private readonly IEnquireBasePremium _basePremiumStore;
+        private readonly ILookUpBasePremium _basePremiumStore;
+        private readonly ILookUpManufacturerFactor _manufacturerFactorStore;
 
-        public PremiumCalculator(IEnquireBasePremium basePremiumStore)
+        public PremiumCalculator(ILookUpBasePremium basePremiumStore, ILookUpManufacturerFactor manufacturerFactorStore)
         {
             _basePremiumStore = basePremiumStore;
+            _manufacturerFactorStore = manufacturerFactorStore;
         }
 
         public double Calculate(Vehicle vehicle)
         {
             var basePremium = _basePremiumStore.GetBasePremiumFor(vehicle);
-            var factor = GetFactorFor(vehicle.Manufacturer);
+            var factor = _manufacturerFactorStore.GetFactorFor(vehicle.Manufacturer);
+            
             return basePremium * factor;
-        }
-
-        private double GetFactorFor(IManufacturer manufacturer)
-        {
-            return 1.5;
         }
 
     }
