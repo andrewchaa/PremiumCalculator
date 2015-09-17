@@ -13,7 +13,7 @@ namespace CarInsuranceRatingEngine
 
         public double Calculate(string vehicleType, string manufacturer)
         {
-            var basePremium = _basePremiumStore.Enquire(vehicleType);
+            var basePremium = _basePremiumStore.GetBasePremiumFor(vehicleType);
             var factor = GetFactorFor(manufacturer);
             return basePremium * factor;
         }

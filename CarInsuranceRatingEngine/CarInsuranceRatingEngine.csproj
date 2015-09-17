@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="BasePremiumStore.cs" />
     <Compile Include="Contracts\IEnquireBasePremium.cs" />
+    <Compile Include="Exceptions\VehicleTypeNotExistException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PremiumCalculator.cs" />
   </ItemGroup>
