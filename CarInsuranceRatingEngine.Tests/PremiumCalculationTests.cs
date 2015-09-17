@@ -11,7 +11,7 @@ namespace CarInsuranceRatingEngine.Tests
         {
             var premiumCalculator = new PremiumCalculator(new BasePremiumStore());
 
-            var audi = new Car("Audi");
+            var audi = new Car(new Audi());
             var premium = premiumCalculator.Calculate(audi);
 
             Assert.That(premium, Is.EqualTo(1200));

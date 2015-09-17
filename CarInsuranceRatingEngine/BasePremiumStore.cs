@@ -9,7 +9,7 @@ namespace CarInsuranceRatingEngine
 {
     public class BasePremiumStore : IEnquireBasePremium
     {
-        private Dictionary<Type, double> _basePremiums;
+        private readonly Dictionary<Type, double> _basePremiums;
 
         public BasePremiumStore()
         {
@@ -20,7 +20,7 @@ namespace CarInsuranceRatingEngine
             };
         }
 
-        public double GetBasePremiumFor(IVehicle vehicle)
+        public double GetBasePremiumFor(Vehicle vehicle)
         {
             if (!_basePremiums.Keys.Contains(vehicle.GetType()))
                 throw new VehicleTypeNotExistException();

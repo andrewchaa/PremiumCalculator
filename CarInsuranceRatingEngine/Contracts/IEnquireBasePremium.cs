@@ -5,6 +5,6 @@ namespace CarInsuranceRatingEngine.Contracts
 {
     public interface IEnquireBasePremium
     {
-        double GetBasePremiumFor(IVehicle vehicle);
+        double GetBasePremiumFor(Vehicle vehicle);
     }
 }

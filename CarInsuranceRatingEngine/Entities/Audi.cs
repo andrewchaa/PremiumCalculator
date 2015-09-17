@@ -2,8 +2,7 @@
 
 namespace CarInsuranceRatingEngine.Entities
 {
-    public class Car : Vehicle
+    public class Audi : IManufacturer
     {
-        public Car(IManufacturer manufacturer) : base(manufacturer) {}
     }
 }

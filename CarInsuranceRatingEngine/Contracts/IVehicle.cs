@@ -2,6 +2,6 @@ namespace CarInsuranceRatingEngine.Contracts
 {
     public interface IVehicle
     {
-        string Manufacturer { get; }
+        IManufacturer Manufacturer { get; }
     }
 }
