@@ -1,6 +1,7 @@
 ﻿using CarInsuranceRatingEngine.Contracts;
+using CarInsuranceRatingEngine.Manufacturers;
 
-namespace CarInsuranceRatingEngine.Entities
+namespace CarInsuranceRatingEngine.VehicleTypes
 {
     public class Car : Vehicle
     {

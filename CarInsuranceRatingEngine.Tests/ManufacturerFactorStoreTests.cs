@@ -1,5 +1,5 @@
-﻿using CarInsuranceRatingEngine.Entities;
-using CarInsuranceRatingEngine.Exceptions;
+﻿using CarInsuranceRatingEngine.Exceptions;
+using CarInsuranceRatingEngine.Manufacturers;
 using CarInsuranceRatingEngine.Stores;
 using NUnit.Framework;
 

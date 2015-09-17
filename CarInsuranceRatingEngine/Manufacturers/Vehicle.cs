@@ -1,6 +1,6 @@
 ﻿using CarInsuranceRatingEngine.Contracts;
 
-namespace CarInsuranceRatingEngine.Entities
+namespace CarInsuranceRatingEngine.Manufacturers
 {
     public abstract class Vehicle
     {

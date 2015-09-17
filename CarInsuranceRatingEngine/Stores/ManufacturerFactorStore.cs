@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using CarInsuranceRatingEngine.Contracts;
-using CarInsuranceRatingEngine.Entities;
 using CarInsuranceRatingEngine.Exceptions;
+using CarInsuranceRatingEngine.Manufacturers;
 
 namespace CarInsuranceRatingEngine.Stores
 {

@@ -1,7 +1,8 @@
 ﻿using System.Security.AccessControl;
-using CarInsuranceRatingEngine.Entities;
 using CarInsuranceRatingEngine.Exceptions;
+using CarInsuranceRatingEngine.Manufacturers;
 using CarInsuranceRatingEngine.Stores;
+using CarInsuranceRatingEngine.VehicleTypes;
 using NUnit.Framework;
 
 namespace CarInsuranceRatingEngine.Tests

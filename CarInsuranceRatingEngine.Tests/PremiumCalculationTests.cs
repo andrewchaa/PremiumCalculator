@@ -1,5 +1,6 @@
-﻿using CarInsuranceRatingEngine.Entities;
+﻿using CarInsuranceRatingEngine.Manufacturers;
 using CarInsuranceRatingEngine.Stores;
+using CarInsuranceRatingEngine.VehicleTypes;
 using NUnit.Framework;
 
 namespace CarInsuranceRatingEngine.Tests

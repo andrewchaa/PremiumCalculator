@@ -1,5 +1,5 @@
 using CarInsuranceRatingEngine.Contracts;
-using CarInsuranceRatingEngine.Entities;
+using CarInsuranceRatingEngine.Manufacturers;
 
 namespace CarInsuranceRatingEngine
 {
